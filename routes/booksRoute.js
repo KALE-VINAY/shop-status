@@ -8,8 +8,8 @@ const router = express.Router();
 router.post('/', async (request , response) => {
     try{
       if(!request.body.title ||
-        !request.body.author ||
-        !request.body.publishYear||
+        // !request.body.author ||
+        // !request.body.publishYear||
         !request.body.statusshop
 
     ){
@@ -19,8 +19,8 @@ router.post('/', async (request , response) => {
     }  
     const newBook ={
         title: request.body.title,
-        author: request.body.author,
-        publishYear:request.body.publishYear,
+        // author: request.body.author,
+        // publishYear:request.body.publishYear,
         statusshop:request.body.statusshop,
     };
 
@@ -71,8 +71,9 @@ return response.status(201).json({
 router.put('/:id' , async (request , response)=>{
     try{
         if(!request.body.title ||
-            !request.body.author ||
-            !request.body.publishYear
+            // !request.body.author ||
+            // !request.body.publishYear
+            !request.body.statusshop
         ){
             return response.status(400).send({
                 message: 'send all required fields :title, author, publishYear',
